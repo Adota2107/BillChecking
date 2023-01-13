@@ -6,6 +6,18 @@ public class Person {
 
     Scanner sc = new Scanner(System.in);
 
+    public int checkInput(){
+        while (true) {
+            try {
+                int input = Integer.parseInt(sc.nextLine());
+                return input;
+            } catch (NumberFormatException nfe) {
+                System.out.println("Wrong type of input!!!");
+                System.out.print("Enter again: ");
+            }
+        }
+    }
+
     public Person() {
     }
 
@@ -16,7 +28,7 @@ public class Person {
 
     public int billNum(){
         System.out.print("input number of bill: ");  
-        int num = sc.nextInt();
+        int num = checkInput();
         return num;
     }
     
@@ -24,7 +36,7 @@ public class Person {
         int[] bill = new int[x];
         for (int i = 0; i < bill.length; i++) {
            System.out.print("input value of bill " + (i+1) + " : "); 
-           bill[i] = sc.nextInt();
+           bill[i] = checkInput();
         } 
         return bill;
     }
